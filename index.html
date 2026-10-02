@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talari Shiva Pavani | B.Tech CSE (Data Science) Student</title>
+<meta name="description" content="Portfolio of Talari Shiva Pavani, B.Tech Computer Science and Engineering (Data Science) student in Hyderabad.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f1b2d'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='white' font-family='Georgia'>TP</text></svg>">
+<style>
+:root{
+  --navy:#0f1b2d; --ink:#1b2433; --muted:#556072; --paper:#ffffff; --alt:#f3f5f8;
+  --line:#dde2ea; --accent:#1f6fb2; --accent-dark:#164f80;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--sans);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:0 0 .5rem;color:var(--navy)}
+h2{font-size:1.75rem}
+h3{font-size:1.15rem;margin-top:1.5rem}
+h3:first-child{margin-top:0}
+p{margin:0 0 1rem;max-width:68ch}
+a{color:var(--accent)}
+a:hover{color:var(--accent-dark)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:.5rem 1rem;z-index:20}
+.skip:focus{left:0}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.75rem 1.25rem;background:var(--navy);color:#fff}
+.brand{font-family:var(--serif);font-size:1.15rem;color:#fff;text-decoration:none}
+.menu-btn{display:none;background:none;border:1px solid #ffffff66;color:#fff;padding:.4rem .9rem;border-radius:6px;font:inherit;cursor:pointer}
+#nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+#nav a{color:#cfd8e6;text-decoration:none;font-size:.95rem;padding:.2rem 0;border-bottom:2px solid transparent}
+#nav a:hover,#nav a.active{color:#fff;border-color:#fff}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:4rem 0 4.5rem}
+.hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2.5rem;align-items:center}
+.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:-.01em}
+.hello{color:#9fb3cc;margin-bottom:.75rem}
+.headline{font-size:1.2rem;color:#e6edf7;margin-bottom:.75rem}
+.intro{color:#cfd8e6}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 1.25rem}
+.btn{display:inline-block;padding:.7rem 1.25rem;border:1.5px solid currentColor;border-radius:8px;text-decoration:none;font-weight:600;color:#fff;transition:background .2s,color .2s}
+.hero .btn:hover{background:#fff;color:var(--navy)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.social{list-style:none;display:flex;gap:1.25rem;padding:0;margin:0}
+.social a{color:#fff;text-underline-offset:4px}
+.photo{position:relative;justify-self:center;width:100%;max-width:280px;aspect-ratio:4/5;border-radius:12px;background:#1c2d47;border:1px solid #2f4468;overflow:hidden;display:grid;place-items:center}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo span{font-family:var(--serif);font-size:3rem;color:#6f88ab}
+
+/* sections */
+.section{padding:4rem 0}
+.section.alt{background:var(--alt)}
+.split{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem 2.5rem}
+.split>h2{position:sticky;top:5rem;align-self:start}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:.5rem 0 0}
+.chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.3rem .9rem;font-size:.95rem}
+.alt .chips li{background:#fff}
+.meta{color:var(--muted);font-size:.95rem;margin-bottom:.75rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.5rem}
+.card ul{margin:0 0 1rem;padding-left:1.25rem}
+.timeline article{border-left:3px solid var(--accent);padding-left:1.25rem}
+.item{padding:0 0 1.25rem;margin-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.item h3{margin-top:0}
+.contact .btn.primary{word-break:break-all}
+.contact .social a{color:var(--accent)}
+.site-footer{background:var(--navy);color:#9fb3cc;padding:1.5rem 0;font-size:.9rem}
+
+/* reveal: only the hero content animates on load */
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.hero-text{animation:rise .6s ease-out both}
+
+/* responsive */
+@media (max-width:860px){
+  .split{grid-template-columns:1fr}
+  .split>h2{position:static}
+  .hero-grid{grid-template-columns:1fr}
+  .photo{order:-1;max-width:200px;justify-self:start}
+}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  #nav{display:none;flex-direction:column;width:100%;gap:.25rem;padding-top:.75rem}
+  #nav.open{display:flex}
+  #nav a{padding:.5rem 0;border:0}
+  .section{padding:3rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-text{animation:none}
+  .btn{transition:none}
+}
+
+/* certificates */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1.25rem}
+.cert h3{font-size:1rem;margin-top:1rem}
+.cert .meta{margin:0}
+.cert-thumb{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:none;cursor:zoom-in}
+.cert-thumb img{display:block;width:100%;height:auto}
+#cert-dialog{max-width:min(92vw,60rem);width:100%;padding:1rem;border:0;border-radius:10px;background:var(--paper);color:var(--ink)}
+#cert-dialog::backdrop{background:rgba(8,14,26,.75)}
+#cert-dialog img{width:100%;height:auto;border-radius:6px}
+#cert-caption{margin:.75rem 0 0;font-size:.95rem;color:var(--muted)}
+.close{position:absolute;top:.4rem;right:.6rem;font-size:1.8rem;line-height:1;background:var(--paper);border:0;border-radius:50%;width:2.2rem;height:2.2rem;cursor:pointer;color:var(--ink)}
+
+@media (prefers-color-scheme:dark){
+:root{--ink:#e3e8f0;--muted:#a3afc0;--paper:#0b1422;--alt:#101c2e;--line:#22334d;--accent:#5aa9e6;--accent-dark:#8cc4f0}
+h1,h2,h3{color:#f1f5fb}
+.chips li,.card{background:#14233a}
+.btn.primary{color:#06111f}
+.hero .btn.primary{color:#06111f}
+.contact .social a{color:var(--accent)}
+}
+body{background:var(--paper)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Talari Shiva Pavani, home">Shiva Pavani</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hello">Hyderabad, Telangana</p>
+        <h1>Talari Shiva Pavani</h1>
+        <p class="headline">B.Tech Computer Science and Engineering (Data Science) student</p>
+        <p class="intro">I build AI-assisted web products and prototypes, and I enjoy hackathons, entrepreneurship and problem-solving. I created NewsLens, an AI-powered news transparency platform.</p>
+        <div class="actions">
+          <a class="btn primary" href="assets/Talari_Shiva_Pavani_Resume.pdf" id="resume-btn" download>Download resume</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <ul class="social" aria-label="Profiles">
+          <li><a href="https://www.linkedin.com/in/talari-shiva-pavani-529a11323" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/talarishivapavanitalari-hub" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="photo" role="img" aria-label="Profile photo placeholder">
+        <img src="assets/profile.jpg" alt="Talari Shiva Pavani" width="320" height="380" onerror="this.remove()">
+        <span aria-hidden="true">TSP</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section"><div class="wrap split">
+    <h2>About me</h2>
+    <div class="body">
+      <p>I am a B.Tech Computer Science and Engineering (Data Science) student with hands-on experience in AI-assisted development, web technologies and product prototyping.</p>
+      <p>I developed NewsLens, an AI-powered news transparency platform, and reached the Top 30 at a university hackathon. Through hackathons and innovation programs I have gained experience in ideation, problem-solving, UI/UX and teamwork.</p>
+      <p>I am looking for opportunities to apply my technical and creative skills to build impactful technology solutions.</p>
+    </div>
+  </div></section>
+
+  <section id="skills" class="section alt"><div class="wrap split">
+    <h2>Skills</h2>
+    <div class="body">
+      <h3>Programming and web</h3>
+      <ul class="chips"><li>Python</li><li>Java</li><li>HTML &amp; CSS</li></ul>
+      <h3>Professional</h3>
+      <ul class="chips"><li>Entrepreneurship &amp; ideation</li><li>Problem solving</li><li>Team collaboration</li></ul>
+      <h3>Languages</h3>
+      <ul class="chips"><li>English</li><li>Telugu</li><li>Hindi</li></ul>
+    </div>
+  </div></section>
+
+  <section id="projects" class="section"><div class="wrap split">
+    <h2>Projects</h2>
+    <div class="body">
+      <article class="card">
+        <h3>NewsLens</h3>
+        <p class="meta">AI-powered news transparency platform</p>
+        <p><strong>Purpose:</strong> Help users make more informed decisions about the news they read.</p>
+        <p><strong>Main features:</strong></p>
+        <ul>
+          <li>Identifies news bias</li>
+          <li>Verifies claims</li>
+          <li>Assesses source credibility</li>
+          <li>Provides transparent perspectives</li>
+        </ul>
+        <p><strong>Recognition:</strong> Top 30 finalist among 200+ teams at the Malla Reddy University Hackathon.</p>
+        <p class="links"><a href="https://github.com/talarishivapavanitalari-hub" target="_blank" rel="noopener">View my GitHub profile</a></p>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="experience" class="section alt"><div class="wrap split">
+    <h2>Experience</h2>
+    <div class="body timeline">
+      <article>
+        <h3>Entrepreneurship program participant</h3>
+        <p class="meta">WE-Hub, Hyderabad, Telangana &middot; Oct 2025 &ndash; Dec 2025</p>
+        <p>Took part in an entrepreneurship and innovation program covering startup ideation, customer discovery, problem validation and business model development. Refined an entrepreneurial idea through market research, user feedback and mentorship, while building skills in pitching, collaboration and entrepreneurial problem-solving.</p>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="education" class="section"><div class="wrap split">
+    <h2>Education</h2>
+    <div class="body timeline">
+      <article>
+        <h3>Bachelor of Technology (B.Tech), Computer Science and Engineering (Data Science)</h3>
+        <p class="meta">Nalla Narasimha Reddy, Narapally, Hyderabad, Telangana &middot; Present</p>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="certifications" class="section alt"><div class="wrap split">
+    <h2>Certifications</h2>
+    <div class="body">
+      <p class="meta">Select a certificate to view it full size.</p>
+      <div class="certs" id="cert-list"></div>
+      <noscript><p>Please enable JavaScript to view certificates.</p></noscript>
+    </div>
+  </div></section>
+
+  <section id="achievements" class="section"><div class="wrap split">
+    <h2>Achievements and activities</h2>
+    <div class="body">
+      <article class="item">
+        <h3>Malla Reddy University Hackathon: Top 30 finalist</h3>
+        <p>Selected among 200+ teams for developing and presenting NewsLens.</p>
+      </article>
+      <article class="item">
+        <h3>MSME Entrepreneur Hackathon: Round 2 selection</h3>
+        <p>Contributed as a team member and strategic mentor, applying insights from earlier hackathon and entrepreneurship experience to strengthen the pitch, prototype and solution strategy. The team earned Round 2 selection and was the only team among the participants to showcase a working prototype.</p>
+      </article>
+      <article class="item">
+        <h3>Model United Nations (MUN): Delegate</h3>
+        <p>Delegate at two conferences in the Disarmament and International Security Committee (DISEC), representing Japan and Canada. Took part in diplomatic discussions, policy debates, negotiation and resolution-building on international security issues.</p>
+      </article>
+      <h3>Interests and activities</h3>
+      <ul class="chips">
+        <li>Artificial Intelligence</li><li>Entrepreneurship</li><li>Product innovation</li><li>Business &amp; technology</li><li>Public speaking</li><li>Dancing</li><li>Singing</li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section id="contact" class="section contact"><div class="wrap split">
+    <h2>Contact</h2>
+    <div class="body">
+      <p>Open to opportunities to build impactful technology solutions. The quickest way to reach me is email.</p>
+      <p><a class="btn primary" href="mailto:talarishivapavanitalari@gmail.com">talarishivapavanitalari@gmail.com</a></p>
+      <ul class="social">
+        <li><a href="https://www.linkedin.com/in/talari-shiva-pavani-529a11323" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/talarishivapavanitalari-hub" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap">&copy; <span id="year">2026</span> Talari Shiva Pavani</div></footer>
+<dialog id="cert-dialog" aria-label="Certificate viewer">
+  <button class="close" id="cert-close" aria-label="Close">&times;</button>
+  <img id="cert-full" alt="">
+  <p id="cert-caption"></p>
+</dialog>
+<script>
+// ADD NEW CERTIFICATES HERE: copy one block, put the image in assets/certificates/
+var CERTIFICATES = [
+  {
+    title: "Completion Certificate: WE-Engage – FLINT Program (Cohort 4, 2025)",
+    issuer: "WE Hub Foundation with the Australian Consulate-General, Bengaluru",
+    image: "assets/certificates/we-hub-flint-2025.jpg",
+    alt: "Completion certificate for Talari Shiva Pavani from the WE-Engage FLINT Program, Cohort 4, 2025"
+  }
+  // , { title: "...", issuer: "...", image: "assets/certificates/your-file.jpg", alt: "..." }
+];
+
+(function () {
+  var list = document.getElementById('cert-list');
+  var dlg = document.getElementById('cert-dialog');
+  if (!list || !dlg) return;
+
+  CERTIFICATES.forEach(function (c) {
+    var card = document.createElement('article');
+    card.className = 'card cert';
+    var btn = document.createElement('button');
+    btn.className = 'cert-thumb';
+    btn.setAttribute('aria-label', 'View certificate: ' + c.title);
+    var img = document.createElement('img');
+    img.src = c.image; img.alt = c.alt || c.title; img.loading = 'lazy';
+    btn.appendChild(img);
+    var h = document.createElement('h3'); h.textContent = c.title;
+    var p = document.createElement('p'); p.className = 'meta'; p.textContent = 'Issued by ' + c.issuer;
+    card.appendChild(btn); card.appendChild(h); card.appendChild(p);
+    list.appendChild(card);
+    btn.addEventListener('click', function () {
+      document.getElementById('cert-full').src = c.image;
+      document.getElementById('cert-full').alt = c.alt || c.title;
+      document.getElementById('cert-caption').textContent = c.title;
+      dlg.showModal();
+    });
+  });
+
+  document.getElementById('cert-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+})();
+
+</script>
+<script>
+(function () {
+  'use strict';
+
+  // Mobile menu
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Highlight current section in the nav
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          links.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  }
+
+  // Hide the resume button until the PDF has been added to /assets
+  var resume = document.getElementById('resume-btn');
+  if (resume) {
+    fetch(resume.getAttribute('href'), { method: 'HEAD' })
+      .then(function (r) { if (!r.ok) resume.hidden = true; })
+      .catch(function () { resume.hidden = true; });
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+
+</script>
+</body>
+</html>
